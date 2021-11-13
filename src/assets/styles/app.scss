@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
 
 * {
   margin: 0;
@@ -10,6 +10,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: #060018;
   color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -29,9 +33,10 @@ a[href] {
   align-items: center;
   right: 36px;
   top: 36px;
+  z-index: 8;
 
   @at-root #{&}__brand {
-    font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1440 - 300)));
+    font-size: calc(20px + (24 - 20) * ((100vw - 300px) / (1440 - 300)));
     font-weight: 600;
     margin-right: 36px;
   }
@@ -42,10 +47,28 @@ a[href] {
     height: 48px;
     list-style: none;
     transform: rotate(270deg);
+    top: 190px;
+    right: -61px;
   }
   @at-root #{&}__item {
     display: inline-block;
     text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 30px;
+  }
+  @at-root #{&}__link {
+    &:hover {
+      color: #ddd;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        margin-top: 4px;
+        background: #ddd;
+      }
+    }
   }
 }
 
@@ -58,31 +81,148 @@ a[href] {
   border-radius: 5px;
 }
 
+.decor {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 48px;
+  padding: 0 24px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  @at-root #{&}--primary {
+    background: #0008ff;
+    
+    &:hover {
+      background: #0008ee;
+    }
+  }
+}
+
 .hero {
   position: relative;
   display: flex;
   align-items: center;
   height: 100vh;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100vw;
-    height: 30vh;
-    top: 0;
-    background-image: url('../images/decor/Decor-Top.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
+  z-index: 2;
+  
   &::after {
     content: '';
     position: absolute;
     width: 100vw;
     height: 30vh;
     bottom: 0;
-    background: url('../images/decor/Decor-Hero.svg');
+    background: url('../images/Decor-Hero.svg');
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  @at-root #{&}__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    z-index: 2;
+  }
+
+  @at-root #{&}__image {
+    width: 40%;
+    z-index: 2;
+
+    svg {
+      float: right;
+      width: 70%;
+    }
+  }
+  
+  @at-root #{&}__headline {
+    font-size: calc(24px + (48 - 24) * ((100vw - 300px) / (1440 - 300)));
+    margin-bottom: 8px;
+  }
+
+  @at-root #{&}__subheadline {
+    font-size: calc(18px + (36 - 18) * ((100vw - 300px) / (1440 - 300)));
+    margin-bottom: 16px;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  @at-root #{&}__desc {
+    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1440 - 300)));
+    line-height: calc(19px + (27 - 19) * ((100vw - 300px) / (1440 - 300)));
+    margin-bottom: 24px;
+  }
+
+  @at-root #{&}__skills {
+    position: absolute;
+    text-align: right;
+    width: inherit;
+    bottom: 20px;
+    z-index: 2;
+
+    strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+  
+  @at-root #{&}__logo {
+    display: flex;
+    justify-content: end;
+
+    img {
+      width: fit-content;
+      height: 44px;
+      margin-left: 16px;
+    }
+  }
+}
+
+.porto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+
+  .container {
+    width: 600px;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 900;
+  color: #000;
+  -webkit-text-stroke: 4px #fff;
+  letter-spacing: 4px;
+}
+
+.card {
+  @at-root #{&}__image {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
   }
 }
