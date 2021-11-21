@@ -13,25 +13,48 @@ function Hero() {
             <Link href=""><a className="btn btn--primary">Download Resume</a></Link>
           </div>
           <div className="hero__image">
-            <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 70C0 31.3401 31.3401 0 70 0H230C268.66 0 300 31.3401 300 70V390C300 395.523 295.523 400 290 400H10C4.47716 400 0 395.523 0 390V70Z" fill="url(#paint0_linear_113:44)"/>
-              <defs>
-                <linearGradient id="paint0_linear_113:44" x1="150" y1="0" x2="150" y2="400" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#454545"/>
-                <stop offset="1" stop-color="#8E8E8E" stop-opacity="0.1"/>
-                </linearGradient>
-              </defs>
-            </svg>
+            <div className="hero__image-decor">
+              <Image src="/images/back-photo.svg" alt="Decor Top" layout="responsive" objectFit="cover" width="300" height="400" />
+            </div>
           </div>
           <div className="hero__skills">
             <strong>Skills :</strong>
             <span className="hero__logo">
-              <img src="/images/html5.svg"/>
-              <img src="/images/css3.svg"/>
-              <img src="/images/javascript.svg"/>
-              <img src="/images/less.svg"/>
-              <img src="/images/sass.svg"/>
-              <img src="/images/react-alt.svg"/>
+              <Link href="https://html.spec.whatwg.org/multipage/">
+                <a className="hero__logo-items">
+                  <Image src="/images/html5.svg" alt="HTML" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
+              <Link href="https://www.w3.org/TR/CSS/#css">
+                <a className="hero__logo-items">
+                  <Image src="/images/css3.svg" alt="CSS" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
+              <Link href="https://www.javascript.com/">
+                <a className="hero__logo-items">
+                  <Image src="/images/javascript.svg" alt="Javascript" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
+              <Link href="https://lesscss.org/">
+                <a className="hero__logo-items">
+                  <Image src="/images/less.svg" alt="Less" layout="responsive" objectFit="cover" width="98.19" height="44" />
+                </a>
+              </Link>
+              <Link href="https://sass-lang.com/">
+                <a className="hero__logo-items">
+                  <Image src="/images/sass.svg" alt="Sass" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
+              <Link href="https://reactjs.org/">
+                <a className="hero__logo-items">
+                  <Image src="/images/react-alt.svg" alt="React" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
+              <Link href="https://git-scm.com/">
+                <a className="hero__logo-items">
+                  <Image src="/images/git.svg" alt="Git" layout="responsive" objectFit="cover" width="44" height="44" />
+                </a>
+              </Link>
             </span>
           </div>
         </div>

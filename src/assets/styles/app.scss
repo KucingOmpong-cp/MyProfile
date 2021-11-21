@@ -148,7 +148,7 @@ a[href] {
     width: 40%;
     z-index: 2;
 
-    svg {
+    @at-root #{&}-decor {
       float: right;
       width: 70%;
     }
@@ -191,9 +191,9 @@ a[href] {
     display: flex;
     justify-content: end;
 
-    img {
-      width: fit-content;
-      height: 44px;
+    @at-root #{&}-items {
+      min-width: 44px;
+      max-width: 100px;
       margin-left: 16px;
     }
   }
@@ -230,6 +230,21 @@ a[href] {
     overflow: hidden;
     margin-bottom: 16px;
 
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 9;
+      top: 0;
+      left: 0;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #00000090;
+      opacity: 0;
+      -webkit-transition: all 0.4s ease-in-out 0s;
+      -moz-transition: all 0.4s ease-in-out 0s;
+      transition: all 0.4s ease-in-out 0s;
+    }
+
     &::after {
       content: 'CLICK TO DEMO';
       position: absolute;
@@ -243,7 +258,6 @@ a[href] {
       left: 0;
       width: 100%;
       aspect-ratio: 16/9;
-      background: #00000090;
       opacity: 0;
       -webkit-transition: all 0.4s ease-in-out 0s;
       -moz-transition: all 0.4s ease-in-out 0s;
@@ -251,10 +265,11 @@ a[href] {
     }
 
     &:hover{
+      &::before, &::after {
+        opacity: 1;
+      }
       &::after {
         top: 0;
-        left: 0;
-        opacity: 1;
       }
     }
   }
