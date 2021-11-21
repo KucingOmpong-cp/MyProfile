@@ -27,6 +27,10 @@ a[href] {
   color: #FFFFFF;
 }
 
+.align-right {
+  text-align: right;
+}
+
 .navbar {
   position: fixed;
   display: flex;
@@ -214,15 +218,53 @@ a[href] {
   font-size: 60px;
   font-weight: 900;
   color: #000;
-  -webkit-text-stroke: 4px #fff;
+  -webkit-text-stroke: 3px #fff;
   letter-spacing: 4px;
 }
 
 .card {
   @at-root #{&}__image {
+    position: relative;
     display: block;
     border-radius: 10px;
     overflow: hidden;
+    margin-bottom: 16px;
+
+    &::after {
+      content: 'CLICK TO DEMO';
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 24px;
+      z-index: 9;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #00000090;
+      opacity: 0;
+      -webkit-transition: all 0.4s ease-in-out 0s;
+      -moz-transition: all 0.4s ease-in-out 0s;
+      transition: all 0.4s ease-in-out 0s;
+    }
+
+    &:hover{
+      &::after {
+        top: 0;
+        left: 0;
+        opacity: 1;
+      }
+    }
+  }
+  @at-root #{&}__title {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
     margin-bottom: 8px;
+  }
+  @at-root #{&}__desc {
+    font-style: 14px;
   }
 }
